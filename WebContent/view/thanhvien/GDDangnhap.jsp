@@ -1,5 +1,48 @@
-<html>
-    <body>
-        <h1>Hello World</h1>
-    </body>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+
+<jsp:include page="../include.jsp" />
+	<!--Custom styles-->
+	<style type="text/css">
+    <%@include file="../vendor/css/login.css" %>
+</style>
+<title>Sign in</title>
+</head>
+<body>
+<div class="container">
+	<div class="d-flex justify-content-center h-100">
+		<div class="card">
+			<div class="card-header">
+				<h3 class="text-center">Sign in</h3>
+			</div>
+			<div class="card-body">
+				<form>
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+						</div>
+						<input type="text" class="form-control" placeholder="username">
+						
+					</div>
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-key"></i></span>
+						</div>
+						<input type="password" class="form-control" placeholder="password">
+					</div>
+					<div class="form-group">
+						<input type="submit" value="Login" class="btn float-right login_btn">
+					</div>
+				</form>
+			</div>
+			<div class="card-footer">
+				<div class="d-flex justify-content-center links">
+					Don't have an account?<a href="./GDDangki.jsp">Sign up</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
 </html>
