@@ -16,11 +16,13 @@ String gender = request.getParameter("gender");
 
 Member member = new Member(username, password, fullname, dateofbirth, email, phone, securityid, address, gender,
 		"reader");
+
+session.setAttribute("member", member);
 boolean result = memberDAO.checkSignup(member);
 if (result == true) {
 	response.sendRedirect("gdDangnhap.jsp?message=good");
 } else {
-	response.sendRedirect("gdDangnhap.jsp?message=bad");
+	response.sendRedirect("gdDangki.jsp?message=dup");
 }
 System.out.println(result);
 %>

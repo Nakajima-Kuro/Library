@@ -53,10 +53,11 @@ ResultSet resultSet = bookBorrowFormDAO.searchListBorrowForm((Member) session.ge
 							</thead>
 							<tbody>
 								<%
+								int j = 1;
 									while (resultSet.next()) {
 								%>
 								<tr>
-									<th scope="row">1</th>
+									<th scope="row"><%= j++ %></th>
 									<td><%=resultSet.getDate("borrowTime").toString() + " / " + resultSet.getTime("borrowTime")%></td>
 									<%
 										if (resultSet.getDate("dueTime") != null) {
