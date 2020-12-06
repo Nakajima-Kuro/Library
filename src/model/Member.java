@@ -16,6 +16,8 @@ public class Member {
 	private String gender;
 	private String role;
 	
+	public Member() {}
+	
 	public Member(int id, String username, String password, String fullname, Date dateofbirth, String email,
 			String phone, String securityId, String address, String gender, String role) {
 		super();

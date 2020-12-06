@@ -20,7 +20,7 @@ public class MemberDAO extends DAO {
 
 	private static final String GET_MEMBER_BY_USERNAME = "SELECT * FROM `tblmember` WHERE `username` = ?";
 
-	private static final String GET_POSITION_BY_ID = "SELECT `position` FROM `tblemployee` WHERE `id` = ?";
+	private static final String GET_POSITION_BY_ID = "SELECT `position` FROM `tblemployee` WHERE `memberId` = ?";
 
 	public boolean checkSignup(Member member) throws SQLException {
 		try {

@@ -20,7 +20,7 @@
 			if(position != null){
 				if(position.equals("librarian")){
 					//Redirect to gdChinhThuthu
-					//response.sendRedirect("../docgia/gdChinhDocgia.jsp");
+					response.sendRedirect("../thuthu/gdChinhThuthu.jsp");
 				}
 			}
 		}

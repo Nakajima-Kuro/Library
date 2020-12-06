@@ -58,4 +58,26 @@ public class BookBorrowFormDAO extends DAO {
 			return false;
 		}
 	}
+	
+	public double getTotalDeposit(ArrayList<Integer> listFormId) {
+		try {
+			Connection connection = getConnection();
+			// try-with-resource statement will auto close the connection.
+			String query = "SELECT SUM(`deposit`) AS `sumDeposit` FROM `tblbookborrowform` WHERE `id` IN (";
+			for(int i = 0; i < listFormId.size(); i++) {
+				query += listFormId.get(i) + ",";
+			}
+			query = query.substring(0, query.length() - 1);
+			query += ");";
+			PreparedStatement preparedStatement = connection.prepareStatement(query);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			while(resultSet.next()) {
+				return resultSet.getDouble("sumDeposit");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return 0;
+		}
+		return 0;
+	}
 }
