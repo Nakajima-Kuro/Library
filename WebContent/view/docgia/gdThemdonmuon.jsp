@@ -40,7 +40,7 @@
 							amountList = new ArrayList<>();
 						}
 
-						if (request.getParameter("bookId") != null) {
+						if (request.getParameter("bookId") != null && request.getParameter("amount") != null) {
 							BookDAO bookDAO = new BookDAO();
 
 							//Add new book to bookList
