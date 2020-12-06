@@ -9,7 +9,7 @@
 	Member member = new Member(username,password);
 	Member result = memberDAO.checkSignin(member);
 	if(result != null){
-		request.setAttribute("member", result);
+		session.setAttribute("member", result);
 		//Neu nguoi dang nhap la doc gia
 		if(result.getRole().equals("reader")){
 			response.sendRedirect("../docgia/gdChinhDocgia.jsp");
@@ -29,5 +29,4 @@
 		//Sai mat khau
 		response.sendRedirect("gdDangnhap.jsp?message=wrongPass");
 	}
-	System.out.println(result);
 %>

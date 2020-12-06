@@ -24,9 +24,27 @@
 			<%@include file="navbar.jsp"%>
 
 			<div class="container-fluid">
-			<!-- Code in here -->
-			
-			
+				<!-- Code in here -->
+				<div class="card mt-3">
+					<div class="card-header d-flex justify-content-between">
+						<div class="my-auto">Search book</div>
+					</div>
+					<div class="card-body">
+						<form action="gdKetquatimkiemsach.jsp" method="GET">
+							<div class="form-group">
+								<input type="text" class="form-control" name="bookName"
+									placeholder="Enter book name" required="required">
+							</div>
+							<div class="row">
+								<div class="col-2">
+									<input type="submit" value="Search"
+										class="list-group-item list-group-item-action bg-light">
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+
 			</div>
 		</div>
 		<!-- /#page-content-wrapper -->

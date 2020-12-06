@@ -1,9 +1,12 @@
+<%@page import="dao.BookBorrowFormDAO, model.*"%>
 <%@ page import="java.io.*,java.util.*,java.sql.*"%>
 <%@ page import="javax.servlet.http.*,javax.servlet.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
 	//Get list of the BorrowForm
+BookBorrowFormDAO bookBorrowFormDAO = new BookBorrowFormDAO();
+ResultSet resultSet = bookBorrowFormDAO.searchListBorrowForm((Member) session.getAttribute("member"));
 %>
 <!DOCTYPE html>
 <html lang="vi">
@@ -32,7 +35,9 @@
 					<div class="card-header d-flex justify-content-between">
 						<div class="my-auto">Book Borrow List</div>
 						<div>
-							<a href="gdThemdonmuon.jsp" class="list-group-item list-group-item-action bg-light">New Borrow Form</a>
+							<a href="gdThemdonmuon.jsp?new=true"
+								class="list-group-item list-group-item-action bg-light">New
+								Borrow Form</a>
 						</div>
 					</div>
 					<div class="card-body">
@@ -47,27 +52,29 @@
 								</tr>
 							</thead>
 							<tbody>
+								<%
+									while (resultSet.next()) {
+								%>
 								<tr>
 									<th scope="row">1</th>
-									<td>Mark</td>
-									<td>Otto</td>
-									<td>@mdo</td>
-									<td>@mdo</td>
+									<td><%=resultSet.getDate("borrowTime").toString() + " / " + resultSet.getTime("borrowTime")%></td>
+									<%
+										if (resultSet.getDate("dueTime") != null) {
+									%>
+									<td><%=resultSet.getDate("dueTime").toString() + " / " + resultSet.getTime("dueTime")%></td>
+									<%
+										} else {
+									%>
+									<td>Not comfirm</td>
+									<%
+										}
+									%>
+									<td><%=resultSet.getDouble("deposit")%></td>
+									<td><a href="#">detail</a></td>
 								</tr>
-								<tr>
-									<th scope="row">2</th>
-									<td>Jacob</td>
-									<td>Thornton</td>
-									<td>@fat</td>
-									<td>@mdo</td>
-								</tr>
-								<tr>
-									<th scope="row">3</th>
-									<td>Larry</td>
-									<td>the Bird</td>
-									<td>@twitter</td>
-									<td>@mdo</td>
-								</tr>
+								<%
+									}
+								%>
 							</tbody>
 						</table>
 					</div>

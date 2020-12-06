@@ -32,6 +32,21 @@ public class Member {
 		this.role = role;
 	}
 	
+	public Member(String username, String password, String fullname, Date dateofbirth, String email,
+			String phone, String securityId, String address, String gender, String role) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.fullname = fullname;
+		this.dateofbirth = dateofbirth;
+		this.email = email;
+		this.phone = phone;
+		this.securityId = securityId;
+		this.address = address;
+		this.gender = gender;
+		this.role = role;
+	}
+	
 	public Member(String username, String password) {
 		super();
 		this.username = username;
@@ -105,4 +120,11 @@ public class Member {
 		this.role = role;
 	}
 
+	@Override
+	public String toString() {
+		return "Member [id=" + id + ", username=" + username + ", password=" + password + ", fullname=" + fullname
+				+ ", dateofbirth=" + dateofbirth + ", email=" + email + ", phone=" + phone + ", securityId="
+				+ securityId + ", address=" + address + ", gender=" + gender + ", role=" + role + "]";
+	}
+	
 }
